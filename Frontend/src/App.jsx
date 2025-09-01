@@ -7,13 +7,15 @@ import toast from 'react-hot-toast'
 
 const App = () => {
   return (
-    <div>
-      {/* <button onClick={() => toast.success("Congrats")} className='text-red-500'>Test Button</button> */}
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/create" element={<CreatePage />} />
-        <Route path="/note/:id" element={<NoteDetailPage />} />
-      </Routes>
+    <div className="min-h-screen bg-gray-100 p-4">
+      <button onClick={() => toast.success("Congrats")} className="btn btn-primary mb-4">Test Button</button>
+      <div className="container mx-auto">
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/create" element={<CreatePage />} />
+          <Route path="/note/:id" element={<NoteDetailPage />} />
+        </Routes>
+      </div>
     </div>
   )
 }
