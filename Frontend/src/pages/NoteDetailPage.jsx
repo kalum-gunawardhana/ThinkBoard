@@ -1,11 +1,11 @@
 import React from 'react'
 
-const NoteDetailPage = () => {
+const DetailPage = () => {
   return (
     <div>
-      <h1>Note Detail Page</h1>
+      <h1>Detail Page</h1>
     </div>
   )
 }
 
-export default NoteDetailPage
+export default DetailPage
