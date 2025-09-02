@@ -49,6 +49,8 @@ const DetailPage = () => {
 
   // Save changes
   const handleSave = async () => {
+    console.log('clicked');
+    
     if (!note.title.trim() || !note.content.trim()) {
       toast.error("Please fill in all fields");
       return;
@@ -100,18 +102,18 @@ const DetailPage = () => {
                   <span className='label-text'>Title</span>
                 </label>
                 <input type="text" placeholder='Note title' className='input input-bordered' value={note.title}
-                  onClick={(e) => setNote({ ...note, title: e.target.value })} />
+                  onChange={(e) => setNote({ ...note, title: e.target.value })} />
               </div>
               <div className='form-control mb-4'>
                 <label className='label-text'>
                   <span className='label-text'>Content</span>
                 </label>
                 <textarea placeholder='Write your note here...' className='textarea textarea-bordered h-32' value={note.content}
-                  onClick={(e) => setNote({ ...note, content: e.target.value })} />
+                  onChange={(e) => setNote({ ...note, content: e.target.value })} />
               </div>
 
               <div className='card-actions justify-end'>
-                <button className='btn btn-primary' disabled={handleSave}>
+                <button className='btn btn-primary' disabled={saving} onClick={handleSave}>
                   {saving ? "Saving..." : "Save Changes"}
                 </button>
               </div>
