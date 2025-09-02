@@ -4,6 +4,7 @@ import React from 'react'
 import { useState } from 'react';
 import toast from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
+import api from '../lib/axios';
 
 const CreatePage = () => {
   const [title, setTitle] = useState("");
@@ -24,7 +25,7 @@ const CreatePage = () => {
 
     setLoading(true);
     try {
-      await axios.post("http://localhost:5001/api/notes", {
+      await api.post("/notes", {
         title,
         content
       }),
@@ -33,12 +34,12 @@ const CreatePage = () => {
     } catch (error) {
       console.log("Error creating note:", error);
       toast.error("Failed to create note");
-      if(error.response.status === 429){
-        toast.error("You are being rate limited. Please try again later.",{
-          duration:4000,
-          icon:'⚠️'
+      if (error.response.status === 429) {
+        toast.error("You are being rate limited. Please try again later.", {
+          duration: 4000,
+          icon: '⚠️'
         });
-      }else{
+      } else {
         toast.error("Failed to create note");
       }
     } finally {
